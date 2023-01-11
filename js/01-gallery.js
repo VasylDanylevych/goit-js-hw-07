@@ -34,7 +34,10 @@ function onModal(evt) {
         `<img src="${evt.target.dataset.source}" width="800" height="600">`,
         {
         onShow: (instance) => {
-            galleryList.addEventListener("keydown", onEscPress)
+            document.addEventListener("keydown", onEscPress)
+        },
+        onClose: (instance) => {
+            document.removeEventListener("keydown", onEscPress)
         },
     });
     instance.show()
